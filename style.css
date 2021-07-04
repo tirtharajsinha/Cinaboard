@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@500&family=Roboto:wght@300&family=Tourney:wght@300&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Poppins;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.brand {
+    color: rgb(25, 150, 137);
+    font-family: Tourney;
+    text-align: center;
+    font-size: 35px;
+}
+
+.brand span {
+    color: rgb(56, 56, 56);
+    font-family: Pacifico;
+    font-size: 16px;
+}
+
+.field {
+    transition: all 1s ease;
+    z-index: 10;
+    display: block;
+    left: 0%;
+}
+
+.area {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.area button {
+    width: 25px;
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.board {
+    display: block;
+    border: 20px solid rgb(22, 189, 22);
+    border-radius: 5px;
+    width: 80%;
+    height: 600px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+canvas {
+    cursor: crosshair;
+}
+
+.tools {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(210, 180, 140, 0.822);
+    border-radius: 40px;
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tools .color-field {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.tools .color-field:nth-child(0) {
+    margin-left: 50px;
+}
+
+.tools .first-div {
+    margin-left: 50px;
+}
+
+.color-field .selector {
+    margin: auto;
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.tools button {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    cursor: pointer;
+    border: hidden;
+    color: black;
+    font-size: 30px;
+    background-color: transparent;
+    margin-left: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.tools button:active {
+    background-color: rgba(226, 164, 49, 0.74);
+}
+
+.tools button:hover {
+    font-size: 34px;
+}
+
+.tools .color-picker {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.tools .pen-range {
+    margin-left: 20px;
+    align-self: center;
+}
+
+.content {
+    height: 700px;
+    width: 90%;
+    position: fixed;
+    top: 50px;
+    left: 5%;
+    display: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 5;
+}
+
+#mySidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(32, 25, 25);
+}
+
+.sidebar a,
+h3 {
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    padding: 8px 16px 8px 16px;
+    font-size: 18px;
+    color: rgb(94, 94, 94);
+}
+
+.sidebar h3 {
+    font-size: 30px;
+    color: white;
+    border-bottom: 2px solid white;
+    font-family: Tourney;
+    color: chartreuse;
+}
+
+.sidebar .panel-text {
+    color: white;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+#pptcode {
+    margin: 10px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.233);
+    color: white;
+    border: 1px solid red;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+#pptcode:focus {
+    outline: none;
+    background-color: rgba(56, 47, 47, 0.233);
+}
+
+.sidebar a:hover {
+    font-weight: 600px;
+    padding-top: 16px;
+    padding-bottom: 0px;
+    border-bottom: 2px solid rgb(221, 17, 17);
+    padding: 8px 16px 8px 32px;
+    color: rgb(255, 255, 255);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    font-size: 36px;
+    margin-left: 50px;
+    text-decoration: none;
+    display: inline;
+}
+
+.sidebar .closebtn:hover {
+    border: none;
+    color: red;
+}
+
+.openbtn {
+    font-size: 20px;
+    padding: 0px 15px;
+    border: none;
+    transition: all 0.2s ease;
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 0px;
+    align-self: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    color: black;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-right: 15px;
+}
+
+.openbtn:hover {
+    color: green;
+}
+
+.ribbon {
+    border: none;
+    transition: all 0.2s ease;
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: -200px;
+    align-self: center;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    color: black;
+    background-color: transparent;
+    margin-right: 15px;
+    font-style: Pacifico;
+    color: blue;
+    text-align: center;
+    z-index: 20;
+}
+
+.ribbon img {
+    width: 100%;
+    height: auto;
+}

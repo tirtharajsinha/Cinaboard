@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Epicboard</title>
+</head>
+
+<body>
+    <h1 class="brand">EpicBoard <span>- By tirtharaj sinha</span></h1>
+    <div class="nevbar">
+        <div id="mySidebar" class="sidebar">
+            <h3>Epicboard</h3>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+            <hr />
+            <h4 class="panel-text">Enter PPT's embeded code</h4>
+            <textarea name="pptcode" id="pptcode" cols="20" rows="3" oninput="store_embeded(this.value)"></textarea>
+        </div>
+        <button class="openbtn fa fa-bars" id="openbtn" onclick="openNav()"></button>
+        <div class="ribbon" id="ribbon">
+            <img src="welcome-ribbon.png" alt="welcome" />
+        </div>
+    </div>
+    <div class="field" id="field">
+        <div class="area">
+            <div class="board">
+                <canvas id="canvas"></canvas>
+            </div>
+            <button onclick="toggle_board()" class="undo" id="toggle">
+          <i class="fa fa-arrow-left"></i>
+        </button>
+        </div>
+        <div class="tools" id="tools">
+            <button onclick="undo_last()" class="undo" title="undo">
+          <i class="fa fa-backward"></i>
+        </button>
+            <button onclick="clear_canvas()" class="clear" title="clear screen">
+          <i class="fa fa-refresh"></i>
+        </button>
+
+            <button onclick="eraser()" class="eraser" title="eraser">
+          <i class="fa fa-eraser"></i>
+        </button>
+
+            <div onclick="change_color(this)" onmouseover="wave_animation(this)" onmouseout="wave_animation_stop(this)" class="color-field first-div" style="background: red" title="red pen">
+                <div class="selector"></div>
+            </div>
+            <div onclick="change_color(this)" onmouseover="wave_animation(this)" onmouseout="wave_animation_stop(this)" class="color-field" style="background: blue" title="blue pen">
+                <div class="selector"></div>
+            </div>
+            <div onclick="change_color(this)" onmouseover="wave_animation(this)" onmouseout="wave_animation_stop(this)" class="color-field" style="background: green" title="green pen">
+                <div class="selector"></div>
+            </div>
+            <div onclick="change_color(this)" onmouseover="wave_animation(this)" onmouseout="wave_animation_stop(this)" class="color-field" style="background: black" title="black pen">
+                <div class="selector" style="background: white"></div>
+            </div>
+            <div onclick="change_color_gradient(this)" onmouseover="wave_animation(this)" onmouseout="wave_animation_stop(this)" class="color-field" style="
+            background: linear-gradient(
+              to bottom right,
+              #33ccff 0%,
+              #ff99cc 77%
+            );
+          " title="gradient pen">
+                <div class="selector"></div>
+            </div>
+
+            <input oninput="draw_color=this.value;default_dot();" type="color" class="color-picker" value="#00ffff" title="custom pen color picker" />
+            <input oninput="draw_width=this.value" type="range" min="1" max="100" class="pen-range" value="2" title="pen thickness selector" />
+        </div>
+    </div>
+    <div class="content" id="content">
+        <!-- <iframe src="https://onedrive.live.com/embed?cid=07AEFEA32B34C87F&amp;resid=7AEFEA32B34C87F%21555&amp;authkey=ACYGg6nHEwtOotQ&amp;em=2&amp;wdAr=1.3333333333333333" width="100%" height="100%" frameborder="0">This is an embedded
+        <a target="_blank" href="https://office.com">Microsoft Office</a>
+        presentation, powered by
+        <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe
+      > -->
+    </div>
+    <!-- <script src="data.json"></script> -->
+    <script src="main.js"></script>
+</body>
+
+</html>
