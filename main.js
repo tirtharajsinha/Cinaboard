@@ -238,3 +238,14 @@ function ribbon(action) {
         document.getElementById("ribbon").style.left = "-200px";
     }
 }
+
+function store_embeded(value) {
+    if (value != "") {
+        document.getElementById("content").innerHTML = value;
+        let frame = document
+            .getElementById("content")
+            .getElementsByTagName("iframe")[0];
+        frame.style.width = "100%";
+        frame.style.height = "100%";
+    }
+}
