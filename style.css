@@ -24,6 +24,7 @@ body {
 }
 
 .field {
+    margin-top: 25px;
     transition: all 1s ease;
     z-index: 10;
     display: block;
@@ -66,12 +67,13 @@ canvas {
 
 .tools {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     background-color: rgba(210, 180, 140, 0.822);
     border-radius: 40px;
     width: 60%;
     margin: auto;
-    padding: 10px;
+    padding: 5px;
     margin-top: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -89,13 +91,15 @@ canvas {
     transition: all 0.4s ease;
 }
 
-.tools .color-field:nth-child(0) {
-    margin-left: 50px;
-}
 
-.tools .first-div {
+/* .tools .color-field:nth-child(0) {
     margin-left: 50px;
-}
+} */
+
+
+/* .tools .first-div {
+    margin-left: 50px;
+} */
 
 .color-field .selector {
     margin: auto;
@@ -289,4 +293,27 @@ h3 {
 #content,
 #nev {
     display: none;
+}
+
+@media only screen and (max-width: 500px) {
+    .board {
+        width: 90%;
+        border-width: 10px;
+        border-color: rgb(250, 168, 16);
+    }
+    .field {
+        transform: translateY(+15px);
+    }
+    .first-div {
+        margin-left: none;
+    }
+    .color-field {
+        margin-top: 15px;
+    }
+    .color-picker {
+        margin-top: 15px;
+    }
+    .pen-range {
+        margin-top: 15px;
+    }
 }

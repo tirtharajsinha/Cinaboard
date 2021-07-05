@@ -51,19 +51,18 @@
 
 .logo {
     animation-name: rotate;
-    animation-duration: 1s;
-    animation-iteration-count: 2;
-    animation-delay: 2s;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-delay: 2.5s;
     animation-timing-function: linear;
     animation-direction: normal;
 }
 
 @keyframes rotate {
-    0% {}
-    25% {}
-    50% {}
-    75% {}
-    100% {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
         transform: rotate(360deg);
     }
 }

@@ -10,23 +10,24 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="aminate.css" />
+    <meta name="description" content="Cinaboard" />
 
-    <title>Epicboard</title>
+    <title>Cinaboard</title>
 </head>
 
 <body>
     <div class="animate" id="animate">
         <div class="source"></div>
         <div class="logo-btn">
-            <img class="logo" src="whiteboard.png" alt="Epicboard" width="60%" height="auto" />
+            <img class="logo" src="whiteboard.png" alt="Cinaboard" width="60%" height="auto" />
         </div>
     </div>
     <h1 class="brand" id="brand">
-        EpicBoard <span>- By tirtharaj sinha</span>
+        Cinaboard <span>- By tirtharaj sinha</span>
     </h1>
     <div class="nevbar" id="nev">
         <div id="mySidebar" class="sidebar">
-            <h3>Epicboard</h3>
+            <h3>Cinaboard</h3>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 
             <a href="#">About</a>
@@ -85,8 +86,8 @@
                 <div class="selector"></div>
             </div>
 
-            <input oninput="draw_color=this.value;default_dot();" type="color" class="color-picker" value="#00ffff" title="custom pen color picker" />
-            <input oninput="draw_width=this.value" type="range" min="1" max="100" class="pen-range" value="2" title="pen thickness selector" />
+            <input id="color-picker" oninput="draw_color=this.value;default_dot();" type="color" class="color-picker" value="#00ffff" title="custom pen color picker" />
+            <input id="pen-range" oninput="draw_width=this.value" type="range" min="1" max="100" class="pen-range" value="2" title="pen thickness selector" />
         </div>
     </div>
     <div class="content" id="content"></div>

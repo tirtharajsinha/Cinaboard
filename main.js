@@ -58,7 +58,7 @@ function touchdraw(event) {
         context.lineCap = "round";
         context.lineJoin = "round";
         context.stroke();
-        document.title = "Epicboard - writting...";
+        document.title = "Cinaboard - writting...";
     }
     event.preventDefault();
 }
@@ -85,7 +85,7 @@ function draw(event) {
         context.lineCap = "round";
         context.lineJoin = "round";
         context.stroke();
-        document.title = "Epicboard - writting...";
+        document.title = "Cinaboard - writting...";
     }
     event.preventDefault();
 }
@@ -97,7 +97,7 @@ function stop(event) {
         is_drawing = false;
     }
     event.preventDefault();
-    document.title = "Epicboard";
+    document.title = "Cinaboard";
     if (event.type != "mouseout") {
         restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
         index += 1;
@@ -248,4 +248,10 @@ function store_embeded(value) {
         frame.style.width = "100%";
         frame.style.height = "100%";
     }
+}
+
+function move_tools() {
+    let field = document.getElementsByClassName("color-field");
+    let picker = document.getElementById("color-picker");
+    let range = document.getElementById("pen-range");
 }
