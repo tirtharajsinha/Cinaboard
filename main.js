@@ -1,12 +1,20 @@
+setTimeout(function() {
+    document.getElementById("animate").style.display = "none";
+    document.getElementById("brand").style.display = "block";
+    document.getElementById("nev").style.display = "block";
+    document.getElementById("field").style.display = "block";
+}, 5000);
+
 const canvas = document.getElementById("canvas");
 canvas.width = window.innerWidth * 0.9;
 canvas.height = 610;
+
 setTimeout(function() {
     ribbon(true);
-}, 2000);
+}, 7000);
 setTimeout(function() {
     ribbon(false);
-}, 6000);
+}, 11000);
 
 let draw_color = "black";
 let draw_width = "2";

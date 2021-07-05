@@ -283,3 +283,10 @@ h3 {
     width: 100%;
     height: auto;
 }
+
+#brand,
+#field,
+#content,
+#nev {
+    display: none;
+}
