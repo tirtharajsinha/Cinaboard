@@ -34,7 +34,6 @@ body {
 .area {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
 }
 
 .area button {
@@ -296,14 +295,11 @@ h3 {
 }
 
 @media only screen and (max-width: 500px) {
-    .board {
+    /* .board {
         width: 90%;
         border-width: 10px;
         border-color: rgb(250, 168, 16);
-    }
-    .field {
-        transform: translateY(+15px);
-    }
+    } */
     .first-div {
         margin-left: none;
     }

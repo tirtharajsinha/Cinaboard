@@ -2,12 +2,13 @@ setTimeout(function() {
     document.getElementById("animate").style.display = "none";
     document.getElementById("brand").style.display = "block";
     document.getElementById("nev").style.display = "block";
-    document.getElementById("field").style.display = "block";
+    document.getElementById("field").style.display = "inherit";
 }, 5000);
 
 const canvas = document.getElementById("canvas");
-canvas.width = window.innerWidth * 0.9;
-canvas.height = 610;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+// var BB = canvas.getBoundingClientRect();
 
 setTimeout(function() {
     ribbon(true);
@@ -27,6 +28,7 @@ let hidden_board = false;
 let context = canvas.getContext("2d");
 context.fillStyle = start_bg_color;
 context.fillRect(0, 0, canvas.width, canvas.height);
+// console.log(canvas.width + "," + str);
 
 canvas.addEventListener("touchstart", touchstart, false);
 canvas.addEventListener("touchmove", touchdraw, false);
@@ -41,8 +43,8 @@ function touchstart(event) {
     is_drawing = true;
     context.beginPath();
     context.moveTo(
-        event.touches[0].clientX - canvas.offsetLeft,
-        event.touches[0].clientY - canvas.offsetTop
+        event.touches[0].pageX - canvas.offsetLeft,
+        event.touches[0].pageY - canvas.offsetTop
     );
     event.preventDefault();
 }
@@ -50,8 +52,8 @@ function touchstart(event) {
 function touchdraw(event) {
     if (is_drawing) {
         context.lineTo(
-            event.touches[0].clientX - canvas.offsetLeft,
-            event.touches[0].clientY - canvas.offsetTop
+            event.touches[0].pageX - canvas.offsetLeft,
+            event.touches[0].pageY - canvas.offsetTop
         );
         context.strokeStyle = draw_color;
         context.lineWidth = draw_width;
@@ -67,19 +69,14 @@ function start(event) {
     is_drawing = true;
 
     context.beginPath();
-    context.moveTo(
-        event.clientX - canvas.offsetLeft,
-        event.clientY - canvas.offsetTop
-    );
-    event.preventDefault();
+    var BB = canvas.getBoundingClientRect();
+    context.moveTo(event.clientX - BB.left, event.clientY - BB.top);
 }
 
 function draw(event) {
     if (is_drawing) {
-        context.lineTo(
-            event.clientX - canvas.offsetLeft,
-            event.clientY - canvas.offsetTop
-        );
+        var BB = canvas.getBoundingClientRect();
+        context.lineTo(event.clientX - BB.left, event.clientY - BB.top);
         context.strokeStyle = draw_color;
         context.lineWidth = draw_width;
         context.lineCap = "round";
@@ -87,7 +84,6 @@ function draw(event) {
         context.stroke();
         document.title = "Cinaboard - writting...";
     }
-    event.preventDefault();
 }
 
 function stop(event) {
